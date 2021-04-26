@@ -127,4 +127,12 @@ router.delete('/resume/basics/:key', (req, res) =>{
     return res.send ("Could not delete '" + key + "'.")
 
 })
+
+//Need to see how to delete in array 
+// router.delete('/resume/work/:key', (req, res) =>{
+//     const key = req.params.key;
+//     if (delete resumes[0].basics[key])
+//     return res.send("Object '" + key + "'has been deleted")
+//     return res.send ("Could not delete '" + key + "'.")
+// })
 module.exports = router;
