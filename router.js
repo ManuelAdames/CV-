@@ -68,6 +68,10 @@ router.get('/resume/references/', (req, res) =>{
 })
 ////////////////HEAD section//////////////////////////
 
+router.head('resumes', (req,res)=>{
+    return res.send(resumes)
+})
+
 router.head('/resume/basisc/:key', (req,res) =>{
     if(key in resumes[0].basics){
         return res.send(messages[0].basics[key]);
@@ -75,6 +79,8 @@ router.head('/resume/basisc/:key', (req,res) =>{
     else
         return res.status(404).send("page not found");
 })
+
+
 ////////////////POST section//////////////////////////
 
 router.post('/resume', (req, res) => {
