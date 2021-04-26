@@ -66,7 +66,15 @@ router.get('/resume/languages/', (req, res) =>{
 router.get('/resume/references/', (req, res) =>{
     return res.send(resumes[0].references);
 })
+////////////////HEAD section//////////////////////////
 
+router.head('/resume/basisc/:key', (req,res) =>{
+    if(key in resumes[0].basics){
+        return res.send(messages[0].basics[key]);
+    }
+    else
+        return res.status(404).send("page not found");
+})
 ////////////////POST section//////////////////////////
 
 router.post('/resume', (req, res) => {
