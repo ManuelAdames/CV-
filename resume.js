@@ -55,10 +55,10 @@ module.exports = [
           ]
         }],
         awards: [{
-          title: "Award",
-          date: "2014-11-01",
-          awarder: "Company",
-          summary: "There is no spoon."
+          title: "3rd Place Science Fair ABC School",
+          date: "2013-04",
+          awarder: "ABC School",
+          summary: "Small renwable energy proyect for school science fair "
         }],
         publications: [{
           name: "Publication",
