@@ -111,4 +111,13 @@ router.put('/resume/:key', (req, res) =>{
 
 })
 
+////////////////DELETE section//////////////////////////
+
+router.delete('/resume/:key',(req, res)=>{
+    const key = req.params.key;
+    if (delete resumes[0][key])
+    return res.send("Object '" + key + "'has been deleted")
+    return res.send ("Could not delete '" + key + "'.")
+})
+
 module.exports = router;
