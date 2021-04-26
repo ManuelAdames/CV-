@@ -67,5 +67,24 @@ router.get('/resume/references/', (req, res) =>{
     return res.send(resumes[0].references);
 })
 
+////////////////POST section//////////////////////////
+
+router.post('/resume', (req, res) => {
+    const newkey = req.body;
+    if(newkey.section){
+        newkey.section = newkey.section.trim()
+        if (newkey.section.length > 0) {
+            if (newkey.section in resumes[0])
+                return res.status(400).send("Section '" + newkey.section + "' already exists")
+            
+            resumes[0][newkey.section] = newkey.data ? newkey.data: {}
+            return res.send(resumes[0][newkey.section])
+        }
+        return res.status(400).send("Key must contain at least 1 letter")
+    }
+    return res.status(400).send("'section' key is required")
+
+})
+
 
 module.exports = router;
