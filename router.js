@@ -86,5 +86,29 @@ router.post('/resume', (req, res) => {
 
 })
 
+//POST format example 
+// {
+//     "section": "favorite food",
+//     "data":{
+//         "name": "chicharron"
+//     }
+// }
+
+////////////////PUT section//////////////////////////
+
+router.put('/resume/:key', (req, res) =>{
+    const newkey = req.body;
+    const topLevel = req.params.key;
+    if(newkey.section){
+        newkey.section = newkey.section.trim()
+        if (newkey.section.length > 0) {
+            resumes[0][topLevel][newkey.section] = newkey.data ? newkey.data : {}
+            return res.send(resumes[0][topLevel][newkey.section])
+        }
+        return res.status(400).send("Key must contain at least 1 letter")
+    }
+    return res.status(400).send("'section' key is required")
+
+})
 
 module.exports = router;
