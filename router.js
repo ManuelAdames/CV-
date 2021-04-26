@@ -120,9 +120,9 @@ router.delete('/resume/:key',(req, res)=>{
     return res.send ("Could not delete '" + key + "'.")
 })
 
-router.delete('/resumes/basic/:key', (req, res) =>{
+router.delete('/resume/basics/:key', (req, res) =>{
     const key = req.params.key;
-    if(delete resumes[0].basics[key])
+    if (delete resumes[0].basics[key])
     return res.send("Object '" + key + "'has been deleted")
     return res.send ("Could not delete '" + key + "'.")
 
